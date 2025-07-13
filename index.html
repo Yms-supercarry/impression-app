@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>图片印象可视化</title>
+  <!-- 移动端自适应 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- jQuery Mobile 样式 -->
+  <link rel="stylesheet" href="css/jquery.mobile-1.1.0.css" />
+  <style>
+    body {
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    input, .culture-selector {
+      margin-bottom: 10px;
+      display: block;
+    }
+    #spin {
+      margin: 20px auto;
+      width: 40px;
+      height: 40px;
+    }
+    /* 结果卡片样式 */
+    .impress-item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #fafafa;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    /* 缩略图或 canvas 缩略图 */
+    .impress-item .thumb {
+      width: 80px;
+      height: auto !important;
+      margin-right: 12px;
+    }
+    /* 色块小图 */
+    .impress-item img.swatch {
+      width: 100px;
+      height: auto;
+      margin-right: 12px;
+    }
+    /* 文本部分 */
+    .impress-content {
+      flex: 1;
+      min-width: 120px;
+    }
+    .impress-content strong {
+      font-size: 1em;
+    }
+    /* 按钮样式 */
+    .impress-item button {
+      padding: 4px 8px;
+      font-size: 0.9em;
+      margin: 6px 6px 0 0;
+      cursor: pointer;
+      border: 1px solid #999;
+      border-radius: 3px;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>图片印象可视化 Demo</h1>
+
+  <!-- 文件上传控件 -->
+  <input type="file" id="imageFile" accept="image/*" />
+
+  <!-- 印象空间单选 -->
+  <div class="culture-selector">
+    <label>印象空间：</label>
+    <label><input type="radio" name="culture" value="CIS" checked> CIS</label>
+  </div>
+
+  <!-- 加载动画挂载点 -->
+  <div id="spin"></div>
+
+  <!-- 结果展示容器 -->
+  <div id="result_content"></div>
+
+  <!-- 依赖脚本 -->
+  <script src="js/jquery-1.7.2.js"></script>
+  <script src="js/jquery.mobile-1.1.0.js"></script>
+  <script src="js/spin.js"></script>
+  <script src="js/jsmediamatrix.js"></script>
+
+  <!-- 重写 Worker 脚本位置 -->
+  <script>
+    MediaMatrix.location = "js/jsmediamatrix.js";
+  </script>
+
+  <!-- 主逻辑脚本 -->
+  <script src="js/main.js"></script>
+</body>
+</html>
+
